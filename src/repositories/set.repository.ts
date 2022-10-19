@@ -44,7 +44,11 @@ export class SetRepository {
       });
 
       if (!currentSet) {
-        throw new BadRequestException(ErrorException.SET_NOT_EXISTS);
+        return new ResponseHandler(
+          false,
+          { error: ErrorException.SET_NOT_EXISTS },
+          404,
+        );
       }
 
       await this.repository.softDelete(id);

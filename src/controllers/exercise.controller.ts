@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Get,
   Post,
   UseFilters,
   UsePipes,
@@ -15,7 +16,15 @@ import { ApiBody, ApiOperation, ApiTags } from '@nestjs/swagger';
 @Controller('Exercise')
 @UseFilters(HttpExceptionFilter)
 export class ExerciseController {
-  constructor(private readonly setService: ExerciseService) {}
+  constructor(private readonly exerciseService: ExerciseService) {}
+
+  @Get()
+  @ApiOperation({
+    summary: 'Gets all exercise',
+  })
+  getAll() {
+    return this.exerciseService.getAllExercise();
+  }
 
   @Post()
   @ApiOperation({
@@ -24,6 +33,6 @@ export class ExerciseController {
   @UsePipes(ValidationPipe)
   @ApiBody({ type: CreateExerciseSwaggerDto })
   createSet(@Body() data: CreateExerciseSwaggerDto) {
-    return this.setService.createExercise(data);
+    return this.exerciseService.createExercise(data);
   }
 }

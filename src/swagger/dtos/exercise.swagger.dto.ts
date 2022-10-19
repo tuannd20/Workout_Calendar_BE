@@ -7,8 +7,13 @@ export class CreateExerciseSwaggerDto {
   @ApiProperty()
   name: string;
 
-  @IsNumber()
+  // @IsNumber()
+  // @IsNotEmpty()
+  // @ApiProperty()
+  // workoutId: number;
+
+  @IsNumber({}, { each: true })
   @IsNotEmpty()
-  @ApiProperty()
-  workoutId: number;
+  @ApiProperty({ isArray: true, type: 'number' })
+  setIds: number[];
 }
