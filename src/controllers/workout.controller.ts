@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Get,
   Post,
   UseFilters,
   UsePipes,
@@ -16,6 +17,14 @@ import { WorkoutService } from 'src/services';
 @UseFilters(HttpExceptionFilter)
 export class WorkoutController {
   constructor(private readonly workoutService: WorkoutService) {}
+
+  @Get()
+  @ApiOperation({
+    summary: 'Gets all workout',
+  })
+  getAll() {
+    return this.workoutService.getAllWorkout();
+  }
 
   @Post()
   @ApiOperation({

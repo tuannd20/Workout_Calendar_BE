@@ -6,6 +6,10 @@ import { CreateWorkoutDto } from 'src/dtos';
 export class WorkoutService {
   constructor(private readonly workoutRepository: WorkoutRepository) {}
 
+  getAllWorkout() {
+    return this.workoutRepository.getAllWorkout();
+  }
+
   create(body: CreateWorkoutDto) {
     return this.workoutRepository.createWorkout(body);
   }
