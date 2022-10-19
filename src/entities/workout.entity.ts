@@ -13,6 +13,6 @@ export class WorkoutEntity extends CustomBaseEntity {
   @Column('int', { nullable: true, array: true })
   exerciseIds!: number[];
 
-  @OneToMany(() => ExerciseEntity, (exerciseEntity) => exerciseEntity.workout)
-  exercises: ExerciseEntity[];
+  // @OneToMany(() => ExerciseEntity, (exerciseEntity) => exerciseEntity.workout)
+  // exercises: ExerciseEntity[];
 }

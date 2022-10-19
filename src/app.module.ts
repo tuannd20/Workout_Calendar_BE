@@ -10,9 +10,17 @@ import {
   SetEntity,
   SetExerciseEntity,
 } from './entities';
-import { SetController } from './controllers';
-import { SetService } from './services';
-import { SetRepository } from './repositories';
+import {
+  WorkoutController,
+  SetController,
+  ExerciseController,
+} from './controllers';
+import { WorkoutService, SetService, ExerciseService } from './services';
+import {
+  WorkoutRepository,
+  SetRepository,
+  ExerciseRepository,
+} from './repositories';
 
 @Module({
   imports: [
@@ -27,7 +35,14 @@ import { SetRepository } from './repositories';
       SetExerciseEntity,
     ]),
   ],
-  controllers: [SetController],
-  providers: [SetService, SetRepository],
+  controllers: [WorkoutController, SetController, ExerciseController],
+  providers: [
+    WorkoutService,
+    WorkoutRepository,
+    SetService,
+    SetRepository,
+    ExerciseService,
+    ExerciseRepository,
+  ],
 })
 export class AppModule {}
