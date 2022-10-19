@@ -6,7 +6,15 @@ import { CreateSetDto } from 'src/dtos';
 export class SetService {
   constructor(private readonly setRepository: SetRepository) {}
 
+  getAllSet() {
+    return this.setRepository.getAllSet();
+  }
+
   createSet(data: CreateSetDto) {
     return this.setRepository.createSetValue(data);
+  }
+
+  deleteSet(id: number) {
+    return this.setRepository.deleteSet(id);
   }
 }

@@ -8,9 +8,6 @@ export class ExerciseEntity extends CustomBaseEntity {
   @Column('varchar', { nullable: true, length: 255, name: 'name' })
   name!: string;
 
-  @Column('varchar', { nullable: true, length: 255, array: true, name: 'set' })
-  set!: string[];
-
   @ManyToOne(() => WorkoutEntity, (workoutEntity) => workoutEntity.id)
   workout: WorkoutEntity;
 
